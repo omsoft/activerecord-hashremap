@@ -7,10 +7,14 @@ module Hashremap
 
   def remappable
     extend ClassMethods
+    include InstanceMethods
   end
 
   module ClassMethods
-    def remappable
+  end
+
+  module InstanceMethods
+    def traverse_and_update
       puts "Ok"
     end
   end
