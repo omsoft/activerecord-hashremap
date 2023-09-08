@@ -8,6 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Mattia Orfano"]
   spec.email = ["info@mattiaorfano.com"]
 
+  # rubocop:disable Layout/LineLength
+
   spec.summary = "Recursively collect deeply nested keys/values pairs and remap them to the attributes of your model"
   spec.description = "Hashremap is a Hash deserializer and ActiveRecord mapper to promote attributes into the database using a recursive algorithm."
   spec.homepage = "https://github.com/omsoft/activerecord-hashremap"
@@ -19,6 +21,8 @@ Gem::Specification.new do |spec|
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/omsoft/activerecord-hashremap"
   spec.metadata["changelog_uri"] = "https://github.com/omsoft/activerecord-hashremap/blob/master/CHANGELOG.md"
+
+  # rubocop:enable Layout/LineLength
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
