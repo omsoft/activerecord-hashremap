@@ -5,7 +5,7 @@ require_relative "lib/activerecord/hashremap/version"
 Gem::Specification.new do |spec|
   spec.name = "activerecord-hashremap"
   spec.version = Activerecord::Hashremap::VERSION
-  spec.authors = ["Mattia"]
+  spec.authors = ["Mattia Orfano"]
   spec.email = ["info@mattiaorfano.com"]
 
   spec.summary = "Recursively collect deeply nested keys/values pairs and remap them to the attributes of your model"
