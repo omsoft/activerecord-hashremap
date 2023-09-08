@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/activerecord/hashremap/version"
+require_relative "lib/hashremap/version"
 
 Gem::Specification.new do |spec|
   spec.name = "activerecord-hashremap"
-  spec.version = Activerecord::Hashremap::VERSION
+  spec.version = Hashremap::VERSION
   spec.authors = ["Mattia Orfano"]
   spec.email = ["info@mattiaorfano.com"]
 
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/omsoft/activerecord-hashremap"
-  spec.metadata["changelog_uri"] = "https://github.com/omsoft/activerecord-hashremap/blob/main/CHANGELOG.md"
+  spec.metadata["changelog_uri"] = "https://github.com/omsoft/activerecord-hashremap/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -31,8 +31,11 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
+  # The following development dependencies will be listed on the gem's details page on rubygems.org,
+  # thus helping other developers what will be required if they want to contribute to the gem.
+  # Another benefit of putting this specification here rather than the Gemfile is that anybody who
+  # runs gem install activerecord-hashremap --dev will get these development dependencies installed too.
+  spec.add_development_dependency "rspec", "~> 3.0"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
