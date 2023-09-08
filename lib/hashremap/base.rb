@@ -3,9 +3,13 @@
 module Hashremap
   extend ActiveSupport::Concern
 
-  # def self.included(base)
-  #   base.extend Hashremap::ClassMethods
-  # end
+  def self.included(base)
+    base.extend Hashremap::ClassMethods
+  end
+
+  def prova
+    puts "prova"
+  end
 
   module ClassMethods
     def remappable
