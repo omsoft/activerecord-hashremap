@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module Hashremap
+module ActsAsRemappable
   class UnrecognizedTableColumnError < StandardError; end
 end

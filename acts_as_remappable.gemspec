@@ -1,26 +1,26 @@
 # frozen_string_literal: true
 
-require_relative "lib/hashremap/version"
+require_relative "lib/acts_as_remappable/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "activerecord-hashremap"
-  spec.version = Hashremap::VERSION
+  spec.name = "acts_as_remappable"
+  spec.version = ActsAsRemappable::VERSION
   spec.authors = ["Mattia Orfano"]
   spec.email = ["info@mattiaorfano.com"]
 
   # rubocop:disable Layout/LineLength
 
   spec.summary = "Recursively collect deeply nested keys/values pairs and remap them to the attributes of your model"
-  spec.description = "Hashremap is a Hash deserializer and ActiveRecord mapper to promote attributes into the database using a recursive algorithm."
-  spec.homepage = "https://github.com/omsoft/activerecord-hashremap"
+  spec.description = "ActsAsRemappable is a Hash deserializer and ActiveRecord mapper to promote attributes into the database using a recursive algorithm."
+  spec.homepage = "https://github.com/omsoft/acts_as_remappable"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.4.0"
 
   spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/omsoft/activerecord-hashremap"
-  spec.metadata["changelog_uri"] = "https://github.com/omsoft/activerecord-hashremap/blob/master/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/omsoft/acts_as_remappable"
+  spec.metadata["changelog_uri"] = "https://github.com/omsoft/acts_as_remappable/blob/master/CHANGELOG.md"
 
   # rubocop:enable Layout/LineLength
 
