@@ -5,10 +5,12 @@ module ActsAsRemappable
     # list of columns that will be ignored on updates
     STOP_WORDS = %i[id created_at updated_at].freeze
 
+    # @input object, The object upon which the Hash keys will be remapped
     def initialize(object)
       @ar_object = object
     end
 
+    # @input hash, The current node that is being traversed
     def traverse_and_update(hash)
       hash.each do |key, value|
         if object_column_names.include?(key.to_s)
@@ -39,6 +41,7 @@ module ActsAsRemappable
 
       # puts "#{model.class}-#{model.id}.public_send(#{column_name}=, #{value})"
       @ar_object.public_send("#{column_name}=", value)
+      @ar_object.save
     end
   end
 end

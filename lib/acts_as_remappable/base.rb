@@ -10,10 +10,16 @@ module ActsAsRemappable
   end
 
   module InstanceMethods
-    # @input hash, The current node that is being traversed
-    # @input object, The object upon which the Hash' fields are compared and updated
     def traverse_and_update(hash)
-      ActsAsRemappable::Hashremap.new(self).traverse_and_update(hash)
+      # By using a transaction the list of changes (INSERT and UPDATE statements)
+      # will be committed in a single atomic operation, or not at all.
+      #
+      # This has two desirable effects:
+      # Other threads or processes will not see an incomplete submission until all queries have terminated.
+      # If an exception is raised at any point, the transaction is rolled back, and the exception is re-raised.
+      ActiveRecord::Base.transaction do
+        ActsAsRemappable::Hashremap.new(self).traverse_and_update(hash)
+      end
     end
   end
 end
