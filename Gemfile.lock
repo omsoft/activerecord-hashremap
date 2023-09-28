@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    acts_as_remappable (0.1.10)
+    acts_as_remappable (0.1.11)
 
 GEM
   remote: https://rubygems.org/

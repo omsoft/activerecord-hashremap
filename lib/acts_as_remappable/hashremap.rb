@@ -20,7 +20,7 @@ module ActsAsRemappable
     # @input hash, The current node that is being traversed
     def traverse_and_create!(hash)
       traverse(hash) do |key, value|
-        traverse_and_update_existing_items(key, value)
+        traverse_and_create_existing_items(key, value)
         traverse_and_create_new_items(key, value)
       end
     end
@@ -55,6 +55,14 @@ module ActsAsRemappable
             end
     end
 
+    def traverse_and_create_existing_items(key, values)
+      values.select { |item| item.with_indifferent_access.key?(:id) }
+            .each do |hsh|
+              association = @ar_object.public_send(key).find(hsh['id'])
+              ActsAsRemappable::Hashremap.new(association).traverse_and_create!(hsh)
+            end
+    end
+
     def traverse_and_create_new_items(key, values)
       values.reject { |item| item.with_indifferent_access.key?(:id) }
             .each do |hsh|
@@ -70,7 +78,7 @@ module ActsAsRemappable
     end
 
     def symbol_to_konst(symbol)
-      symbol.to_s.camelize.constantize
+      symbol.to_s.singularize.camelize.constantize
     end
   end
 end
