@@ -29,8 +29,6 @@ module ActsAsRemappable
 
     def traverse(hash)
       hash.each do |key, value|
-        value = value.with_indifferent_access
-
         if object_column_names.include?(key.to_s)
           update_column(key, value)
         elsif object_associations.include?(key.to_sym) && value.is_a?(Array)
@@ -50,7 +48,7 @@ module ActsAsRemappable
     end
 
     def traverse_and_update_existing_items(key, values)
-      values.select { |item| item.key?(:id) }
+      values.select { |item| item.with_indifferent_access.key?(:id) }
             .each do |hsh|
               association = @ar_object.public_send(key).find(hsh['id'])
               ActsAsRemappable::Hashremap.new(association).traverse_and_update!(hsh)
@@ -58,7 +56,7 @@ module ActsAsRemappable
     end
 
     def traverse_and_create_new_items(key, values)
-      values.reject { |item| item.key?(:id) }
+      values.reject { |item| item.with_indifferent_access.key?(:id) }
             .each do |hsh|
               @ar_object.public_send(key) << symbol_to_konst(key).new(hsh)
             end
